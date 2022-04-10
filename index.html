@@ -7,6 +7,7 @@
         <title>WEB222 Final Assessment</title>
         <link rel="stylesheet" href="styles.css" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Secular+One&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a490f17845.js" crossorigin="anonymous"></script>
     </head>
 
@@ -19,7 +20,7 @@
                 <div>
                     <h1>Kengo Saeki</h1>
                     <p>Web Developer</p>
-                    <!-- Button w/Resume (not sure)-->
+                    <!-- Button w/Resume -->
                     <a href="personal/Resume_Kengo_Saeki.pdf" download="resume">
                         <button type="button" tabindex="1">
                             <i class="fa fa-download"></i>
@@ -40,8 +41,19 @@
             <!-- Info about Yourself -->
             <div id="info-wrapper">
                 <div class="info">
-                    <h2 class="info-headings">About Me and Academic Honesty</h2>
-                    <p>I declare that my assessment is wholly my own work in accordance with Seneca Academic 
+                    <h2 class="info-headings">About Me</h2>
+                    <p>
+                        My name is Kengo Saeki. 
+                        I am a student at Seneca College studying Computer Programming to pursue a second career. 
+                        I work as an Athletic Therapist on the side specialized in orthopedic injuries in the Greater Toronto Area. 
+                        Prior to going back to school, I worked as an Athletic Therapist with the Ottawa REDBLACKS in the Canadian Football League for 3 seasons. 
+                        As a former university baseball player, I continue to play recreational baseball as a hobby.
+                    </p>
+
+                    <h2>Academic Honesty</h2>
+
+                    <p>
+                        I declare that my assessment is wholly my own work in accordance with Seneca Academic 
                         Policy. No part of this assessment has been copied manually or electronically from any other 
                         source (including web sites) except for the information supplied by the WEB222 instructors and /
                         or made available in this assessment for my use. I also declare that no part of this assignment 
@@ -111,9 +123,9 @@
             <!-- Contact Form -->
             <div class="sub-headers" id="contact">
                 <h2>Contact Form</h2>
-                <p>All field is required</p>
+                <p><span>*</span> Required Field</p>
                 <form id="contact-form" action="https://httpbin.org/post" method="POST">
-                    <label for="full-name">Full Name</label>
+                    <label for="full-name">Full Name <span>*</span></label>
                     <input
                         id="full-name" 
                         name="full-name"
@@ -133,10 +145,9 @@
                         placeholder="Company Name"    
                         title="Enter organization you represent"
                         tabindex="4"
-                        required
                     >
 
-                    <label for="email">Email</label>
+                    <label for="email">Email <span>*</span></label>
                     <input
                         id="email" 
                         name="email"
@@ -149,7 +160,7 @@
                         required
                     >
 
-                    <label for="city">City</label>
+                    <label for="city">City <span>*</span></label>
                     <input
                         id="city"
                         name="city"
@@ -171,7 +182,7 @@
                         <option value="Other"></option>
                     </datalist>
 
-                    <label for="postal">Postal Code</label>
+                    <label for="postal">Postal Code <span>*</span></label>
                     <input
                         id="postal" 
                         name="postal"
@@ -179,12 +190,12 @@
                         type="text"
                         placeholder="M5R 1T8"    
                         pattern="^[a-zA-Z]\d[a-zA-Z]\s?\d[a-zA-Z]\d$"
-                        title="Enter postal code"
+                        title="Enter valid Canadian postal code"
                         tabindex="7"
                         required
                     >
 
-                    <label>Subject</label>
+                    <label>Subject <span>*</span></label>
                     <div id="subject">
                         
                         <div>
@@ -219,24 +230,35 @@
                             >
                             <label for="hiring">Hiring</label>
                         </div>
-                        
+
+                        <label id="rate-label" for="rate" hidden>Hourly Rate <span>*</span></label>
+                        <input
+                            id="rate"
+                            name="rate"
+                            type="text"
+                            title="Enter CDN dollar value"
+                            pattern="^\$?\d+(\.\d{2})?$"
+                            placeholder = "$30";
+                            tabindex="11"
+                            hidden
+                        >
                     </div>
                    
-                    <label for="message">Message</label>
+                    <label for="message">Message <span>*</span></label>
                     <textarea
                         id="message"
                         name="message"
                         rows="7"
                         placeholder="Enter message here"
-                        tabindex="11"
+                        maxlength="2000"
+                        tabindex="12"
+                        required
                     ></textarea>
 
                     <div id="form-button">
-                        <input type="submit" name="submit" value="Submit" tabindex="12">
-                        <input type="reset" name="reset" value="Reset" tabindex="13">
+                        <input type="submit" name="submit" value="Submit" tabindex="13">
+                        <input type="reset" name="reset" value="Reset" tabindex="14">
                     </div>
-
-
                 </form>
             </div>
 
@@ -245,5 +267,4 @@
         <script src="script.js"></script>
 
     </body>
-
 </html>

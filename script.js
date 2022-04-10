@@ -1,39 +1,53 @@
 const hiring = document.querySelector('#hiring');
 const question = document.querySelector('#question');
 const comment = document.querySelector('#comment');
-const subject = document.querySelector('#subject');
-let rateLabel, rate;
-let rateRemoved = true;
+let rateLabel = document.querySelector('#rate-label');
+let rate = document.querySelector('#rate');
+let rateHidden = true;
+const form = document.querySelector('#contact-form');
 
-hiring.addEventListener('click', function (){
-    if(rateRemoved){
-        rateLabel = document.createElement('label');
-        rate = document.createElement('input');
+window.onload = function(){
+    hiring.addEventListener('click', function (){
+        if (rateHidden){
+            rateLabel.removeAttribute('hidden');
+            rate.removeAttribute('hidden');
+            rate.setAttribute('required', '');
+            rateHidden = false;
+        }
+    });
 
-        rateLabel.for = 'rate';
-        rateLabel.innerHTML= 'Hourly Rate';
+    question.addEventListener('click', hideRate);
+    comment.addEventListener('click', hideRate);
+
+    form.addEventListener('submit', function(){
+        let fullName = document.querySelector('#full-name').value.trim();
+        let sentFullName = document.querySelector('#full-name');
+        sentFullName.value = fullName;
         
-        rate.id = 'rate';
-        rate.name = 'rate';
-        rate.type = 'text';
-        rate.title = 'Enter hourly rate';
-        rate.placeholder = 'Hourly Rate';
-        rate.pattern = '^\\$?\\d+(\\.\\d{2})?$';
-        rate.setAttribute('required', '');
+        let organization = document.querySelector('#organization').value.trim();
+        let sentOrganization = document.querySelector('#organization');
+        sentOrganization.value = organization;
 
-        subject.appendChild(rateLabel);
-        subject.appendChild(rate);
-        rateRemoved = false;
-    }
-});
+        let city = document.querySelector('#city').value.trim();
+        let sentCity = document.querySelector('#city');
+        sentCity.value = city;
+        
+        let message = document.querySelector('#message').value.trim();
+        let sentMessage = document.querySelector('#message');
+        sentMessage.value = message;
+        
+        let email = document.querySelector('#email').value.trim();
+        let sentEmail = document.querySelector('#email');
+        sentEmail.value = email;
+    }); 
 
-question.addEventListener('click', removeRate);
-comment.addEventListener('click', removeRate);
+};
 
-function removeRate() {
-    if(!rateRemoved){
-        subject.removeChild(rateLabel);
-        subject.removeChild(rate);
-        rateRemoved = true;
+function hideRate() {
+    if(!rateHidden){
+        rate.removeAttribute('required');
+        rate.setAttribute('hidden', '');
+        rateLabel.setAttribute('hidden', '');
+        rateHidden = true;
     }
 }

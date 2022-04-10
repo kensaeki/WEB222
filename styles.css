@@ -2,16 +2,17 @@
 and (min-width: 800px)
 and (min-device-width: 800px) {
 
+    html, body {
+        font-size: 1.1em;
+    }
+
     #info-wrapper {
-        padding: 40px; 
-        border: 1px solid white;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 85px;
     }
     
     .info-headings {
-        margin: 0 auto;
         height: auto;
         max-height: 200px;
     }
@@ -29,8 +30,11 @@ html, body{
     width: 95%;
     margin: 50px auto;
     max-width: 1024px;
-    font-size: 1.1em;
     font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Secular One', sans-serif;
 }
 
 button {
@@ -47,7 +51,7 @@ a {
 }
 
 img {
-    height: 250px;
+    height: auto;
 }
 
 #myCard {  
@@ -58,12 +62,11 @@ img {
 #info-wrapper {
     padding: 40px; 
     border: 1px solid white;
+    box-shadow: 2px 0 8px 2px white;
 }
 
 .info-headings {
     margin: 0 auto;
-    height: auto;
-    max-height: 200px;
 }
 
 #basic-info-wrapper {
@@ -89,6 +92,7 @@ img {
     margin-bottom: 25px;
     padding: 25px; 
     border: 1px solid white;
+    box-shadow: 2px 0 8px 2px white;
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
@@ -112,10 +116,15 @@ img {
     margin-top: 15px;
 }
 
+#contact span{
+    color: red;
+}
+
 #contact-form {
     text-align: left;
     padding: 30px;
     border: 1px solid white;
+    box-shadow: 2px 0 8px 2px white;
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
@@ -154,6 +163,8 @@ button:hover {
 input[type="submit"],
 input[type="reset"] {
     width: 150px;
+    background-color: white;
+    color: black;
 }
 
 #rate {
